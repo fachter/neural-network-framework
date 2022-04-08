@@ -1,6 +1,6 @@
 # Neural Network Framework
 
-A project done at the university JMU Würzburg together with @marja-w and @mamadfrhi
+A project done at the university JMU Würzburg together with [marja-w](https://github.com/marja-w) and [mamadfrhi](https://github.com/mamadfrhi)
 
 ### Project by Felix Achter, Marja Wahl, Mohammad Farrahi
 This repository is designated to creating, training, and using a neural network. There are five main tasks you can
