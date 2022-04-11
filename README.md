@@ -6,6 +6,8 @@ The package is being used by the remaining implementation of that project in ano
 called [gesture-detection-neural-network](https://github.com/fachter/gesture-detection-neural-network)
 and further usage of this package can be seen in the implementation
 
+There are two jupyter notebooks explaining how to use the package in its [repository](https://github.com/fachter/neural-network-framework)
+
 ### Project by Felix Achter, Marja Wahl, Mohammad Farrahi
 This repository is designated to creating, training, and using a neural network. There are five main tasks you can
 tackle:
