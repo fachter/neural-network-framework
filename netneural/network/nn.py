@@ -10,7 +10,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-import nnpackage.network.feature_scaling as fs
+import netneural.network.feature_scaling as fs
 from .one_hot_encoder import OneHotEncoder
 from .plot_lib import plot_line
 from ..optimizers.adam_optimizer import AdamOptimizer

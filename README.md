@@ -1,6 +1,10 @@
 # Neural Network Framework
 
-A project done at the university JMU Würzburg together with [marja-w](https://github.com/marja-w) and [mamadfrhi](https://github.com/mamadfrhi)
+A project done at the university JMU Würzburg by [fachter](https://github.com/fachter) together with [marja-w](https://github.com/marja-w) and [mamadfrhi](https://github.com/mamadfrhi)
+
+The package is being used by the remaining implementation of that project in another repository 
+called [gesture-detection-neural-network](https://github.com/fachter/gesture-detection-neural-network)
+and further usage of this package can be seen in the implementation
 
 ### Project by Felix Achter, Marja Wahl, Mohammad Farrahi
 This repository is designated to creating, training, and using a neural network. There are five main tasks you can
@@ -18,7 +22,7 @@ optionally optimizer
     Creating a new NeuralNetwork instance, the Standard Scaler is set as the default scaler.
     You can read more about creating a NeuralNetwork instance in section "Creating the Network".
     
-The [feature_scaling.py](./nnpackage/network/feature_scaling.py) file provides two classes for scaling your data: the StandardScaler and
+The [feature_scaling.py](netneural/network/feature_scaling.py) file provides two classes for scaling your data: the StandardScaler and
 the NormalScaler class. You can scale your data, before instantiating a neural network, by creating an instance of either
 class, fitting the scaler to your data, and then transform your data. The data can be transformed back by using the
 inverse_transform() function.
@@ -50,7 +54,7 @@ nn = NeuralNetwork(shape, scaler='normal')
     If no encoder is handed over when instantiating a NeuralNetwork, the data is encoded, if necessary.
     You can read more about creating a NeuralNetwork instance in section "Creating the Network".
 
-The [one_hot_encoder.py](./nnpackage/network/one_hot_encoder.py) can be used for creating your own OneHotEncoder instance and encoding
+The [one_hot_encoder.py](netneural/network/one_hot_encoder.py) can be used for creating your own OneHotEncoder instance and encoding
 multiclass labels into one hot encoded label lists.
 
 ```
@@ -69,7 +73,7 @@ nn = NeuralNetwork(shape, encoder=encoder)
 
 ### Training Test Split
 In order to properly analyse your network's training, you will need to split the data into a training and a test set.
-You can do that by the provided function `train_test_split()`in [data_loader.py](./nnpackage/session/data_loader.py):
+You can do that by the provided function `train_test_split()`in [data_loader.py](netneural/session/data_loader.py):
 
 ```
 # take only the first four outputs, because no validation set is produced
@@ -83,7 +87,7 @@ X_train, y_train, X_test, y_test, X_val, y_val = train_test_split(X, y, train_pe
 ```
 
 ### Principal Component Analysis (PCA)
-Additionally, you can perform PCA using methods provided in [pca.py](./nnpackage/pca/pca.py). 
+Additionally, you can perform PCA using methods provided in [pca.py](netneural/pca/pca.py). 
 
 If you do not know anything about PCA you can simply reduce your
 feature count by specifying how much variance of data you want to cover with the remaining features:
@@ -126,7 +130,7 @@ X_pca = pca.get_n_dimensions(X, n_pc, eigenvectors)
 
 ## Creating the Network
 
-For creating the network, you need to create a new instance of the NeuralNetwork class, provided in [nn.py](./nnpackage/network/nn.py).
+For creating the network, you need to create a new instance of the NeuralNetwork class, provided in [nn.py](netneural/network/nn.py).
 You have to set several parameters when instantiating.
 
 - **Activation Function**: you can choose between sigmoid, tanh, and relu activation
@@ -188,7 +192,7 @@ error_history = nn.train(X, y, 100, 0.1)
 ```
 
 ### Training Sessions
-The functions provided in the [session_util.py](./nnpackage/session/nn_session_util.py) can be used for saving and loading a trained network.
+The functions provided in the [session_util.py](netneural/session/nn_session_util.py) can be used for saving and loading a trained network.
 Along with the network the function `save_session()` also takes other parameters, like the unique labels, PCA object, 
 training history, training data, iterations, and learning rate, in order to easily reenact the documented session.
 
@@ -223,7 +227,7 @@ nn, pca = load_from_config(config_file)
 
 ## Evaluation
 ### Metrics
-For evaluating a trained model intrinsic metrics can be calculated using the methods provided in [metrics.py](./nnpackage/network/metrics.py).
+For evaluating a trained model intrinsic metrics can be calculated using the methods provided in [metrics.py](netneural/network/metrics.py).
 These include accuracy and the F1 score, which essentially compare the predictions of the model `h` to the ground truth `y`.
 The output differs, depending if binary or multiclass classification is demanded.
 
@@ -254,7 +258,7 @@ error = nn.get_error(h,y)  # for nn with regression=True
 ```
 
 ## Plotting
-For making plotting a little bit easier, two functions are introduced in the [plot_lib.py](./nnpackage/network/plot_lib.py) script. One that 
+For making plotting a little bit easier, two functions are introduced in the [plot_lib.py](netneural/network/plot_lib.py) script. One that 
 plots a line and one function that creates a scatter plot.
 
 ```
