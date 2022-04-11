@@ -28,7 +28,7 @@ class, fitting the scaler to your data, and then transform your data. The data c
 inverse_transform() function.
 
 ```
-from nn_framework_package.feature_scaling import StandardScaler
+from netneural.network.feature_scaling import StandardScaler
 
 standard_scaler = StandardScaler()
 standard_scaler.fit(X)  # X being the training data
@@ -40,7 +40,7 @@ Don't forget to set the right scaler, if you did not use the default StandardSca
 instance:
 
 ```
-from nn_framework_package.feature_scaling import NormalScaler
+from netneural.network.feature_scaling import NormalScaler
 
 normal_scaler = NormalScaler()
 normal_scaler.fit(X)  # X being the training data
@@ -58,7 +58,7 @@ The [one_hot_encoder.py](netneural/network/one_hot_encoder.py) can be used for c
 multiclass labels into one hot encoded label lists.
 
 ```
-from nn_framework_package.one_hot_encoder import OneHotEncoder
+from netneural.network.one_hot_encoder import OneHotEncoder
 
 encoder = OneHotEncoder()
 y_one_hot = encoder.encode(y)  # y being the target values with multiple labels
@@ -93,7 +93,7 @@ If you do not know anything about PCA you can simply reduce your
 feature count by specifying how much variance of data you want to cover with the remaining features:
 
 ```
-from nn_framework_package.pca import PCA
+from netneural.pca.pca import PCA
 
 pca = PCA()
 X_pca = pca.pca(X, var_per=0.99)
@@ -139,7 +139,7 @@ You have to set several parameters when instantiating.
 for each layer
 
 ```
-from nn_framework_package.nn import NeuralNetwork
+from netneural.network.nn import NeuralNetwork
 
 shape = (input_features, 2, 2, output_classes)  # variables store the number of input features/output classes
 nn = NeuralNetwork(shape, activation_function='sigmoid')  # uses randomly assigned weights
@@ -197,7 +197,7 @@ Along with the network the function `save_session()` also takes other parameters
 training history, training data, iterations, and learning rate, in order to easily reenact the documented session.
 
 ```
-from nn_framework_package.nn_session_util import save_session
+from netneural.session.nn_session_util import save_session
 
 learning_rate = 0.1
 iterations = 100
@@ -210,7 +210,7 @@ save_session(nn, nn.encoder.unique_labels, pca, f1_history[-1])
 After the file is stored, it can be used to again load the neural network:
 
 ```
-from nn_framework_package.nn_session_util import load_from_config
+from netneural.session.nn_session_util import load_from_config
 
 config_file = "config_90_f1_2022-03-25 14-56-20.json"  # path to the config file
 nn, pca, f1_history, learning_rate, X_train, y_train, X_test, y_test = load_session_from_config(config_file)
@@ -232,7 +232,7 @@ These include accuracy and the F1 score, which essentially compare the predictio
 The output differs, depending if binary or multiclass classification is demanded.
 
 ```
-from neural_net.metrics import get_accuracy, get_f1_score
+from netneural.network.metrics import get_accuracy, get_f1_score
 
 accuracy_per_class, accuracy_mc = get_accuracy(h_multiclass, y_multiclass)  # additionally returns accuracy per class
 accuracy = get_accuracy(h, y)  
@@ -262,7 +262,7 @@ For making plotting a little bit easier, two functions are introduced in the [pl
 plots a line and one function that creates a scatter plot.
 
 ```
-from nn_framework_package.plot_lib import plot_line, plot_scatter
+from netneural.network.plot_lib import plot_line, plot_scatter
 
 plot_line(list_to_plot, x_label, y_label, title)  # plots a line
 plot_scatter(x_data, y_data, colors, x_label, y_label, title):  # creates scatter plot

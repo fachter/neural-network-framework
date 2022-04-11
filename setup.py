@@ -1,10 +1,8 @@
 from setuptools import setup, find_packages
 
 
-VERSION = '0.0.2'
+VERSION = '0.0.3'
 DESCRIPTION = 'Neural Network package'
-LONG_DESCRIPTION = 'A package that allows to create a neural network, and train and predict with it. ' \
-                   'It was developed in a university project and mainly used for gesture detection'
 
 # Setting up
 setup(
